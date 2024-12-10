@@ -11,23 +11,111 @@ export default function RefundAndCancellation() {
                         Refund & Return Policy
                     </Typography>
                     <Typography variant="body2" color="textSecondary" align="left">
-                        Last Updated on January 01, 2022
+                    Last Updated on December 12, 2024
                     </Typography>
 
                     <Divider sx={{ margin: '20px 0' }} />
 
-                    <Typography variant="h6" fontSize={18} fontWeight={600}>Cancellation</Typography>
+                    <Typography variant="h4" fontWeight={700} gutterBottom>
+        Welcome to <span style={{ color: "#1976d2" }}>P2 Music Shop</span>!
+      </Typography>
+      <Typography variant="body1" fontSize={18} lineHeight={1.6}>
+        By accessing or using our website at{" "}
+        <a href="https://www.p2musicshop.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#1976d2", textDecoration: "none" }}>
+          www.p2musicshop.com
+        </a>
+        we strive to ensure your satisfaction with our products. However, if you need to cancel an order or request a refund, please review our policy below:
+      </Typography>
+
+    <Divider sx={{ margin: '20px 0' }} />
+
+                    <Typography variant="h6" fontSize={18} fontWeight={600}> Order Cancellation</Typography>
                     <Typography variant="body1" paragraph>
-                        For cancellation of any order please call us at "9841666819" or mail us at "" with user name and order id. If the order is already dispatched from our premises, you can not cancel the order but you can return it once it reaches your doorstep. If any goods returned by you do not adhere to the above policy, then we reserve the right to terminate our services to you.
+                    **Before Shipping**: You can cancel your order before it is shipped by contacting us at **support@p2musicshop.com** or calling **+919787787796**. A full refund will be processed to your original payment method.<br /> 
+                    **After Shipping**: Orders cannot be canceled once they have been shipped. You may initiate a return once the product is delivered.
                     </Typography>
 
-                    <Divider sx={{ margin: '20px 0' }} />                    
+                    <Divider sx={{ margin: '20px 0' }} />         
+
+                        <Typography variant="h6" fontSize={18} fontWeight={600}>Return Eligibility</Typography>
+                    <Typography variant="body1" paragraph>
+                    The item must be unused, in its original packaging, and in the same condition as when you received it.<br /> 
+                    Proof of purchase (order confirmation or invoice) must be provided.<br />
+                    Returns must be initiated within **[Insert Number] days** of receiving the item.
+                    </Typography>
+
+                    <Divider sx={{ margin: '20px 0' }} />       
+
+                        <Typography variant="h6" fontSize={18} fontWeight={600}>Refund Process</Typography>
+                    <Typography variant="body1" paragraph>
+                    Once we receive and inspect the returned item, we will notify you of the approval or rejection of your refund.<br /> 
+                    Approved refunds will be processed within **7-10 business days** to your original payment method.
+                    </Typography>
+
+                    <Divider sx={{ margin: '20px 0' }} /> 
+
+                        <Typography variant="h6" fontSize={18} fontWeight={600}>Non-Returnable Items</Typography>
+                    <Typography variant="body1" paragraph>
+                    <Typography variant="body1" paragraph> The following items are not eligible for returns: </Typography>
+                    Digital or downloadable products.<br /> 
+                    Items marked as "Final Sale.<br /> 
+                    Products damaged due to improper handling or use.
+                    </Typography>
+
+                    <Divider sx={{ margin: '20px 0' }} /> 
+
+                        <Typography variant="h6" fontSize={18} fontWeight={600}> Refund Process</Typography>
+                    <Typography variant="body1" paragraph>
+                    Once we receive and inspect the returned item, we will notify you of the approval or rejection of your refund.<br /> 
+                    Approved refunds will be processed within **7-10 business days** to your original payment method.
+                    </Typography>
+
+                    <Divider sx={{ margin: '20px 0' }} /> 
+
+                        <Typography variant="h6" fontSize={18} fontWeight={600}>Shipping Costs</Typography>
+                    <Typography variant="body1" paragraph>
+                    If the return is due to a defective or incorrect product, we will cover the return shipping cost.<br /> 
+                    For other returns, the customer is responsible for return shipping fees.
+
+                    </Typography>
+
+                    <Divider sx={{ margin: '20px 0' }} /> 
+
+                        <Typography variant="h6" fontSize={18} fontWeight={600}> Damaged or Defective Items</Typography>
+                    <Typography variant="body1" paragraph>
+                    <Typography variant="body1" paragraph>If you receive a damaged or defective item:</Typography>
+                    Contact us within **[Insert Number] days** of receiving the item at **support@p2musicshop.com** or **+919787787796** with photos or videos of the damage.<br /> 
+                    We will arrange for a replacement or refund after verification.
+
+                    </Typography>
+
+                    <Divider sx={{ margin: '20px 0' }} /> 
+
+                        <Typography variant="h6" fontSize={18} fontWeight={600}>Exchange Policy</Typography>
+                    <Typography variant="body1" paragraph>
+                    We currently do not offer direct exchanges. If you wish to exchange an item, please return it for a refund and place a new order.<br /> 
+                 
+                    </Typography>
+    
+    
+                    <Divider sx={{ margin: '20px 0' }} /> 
 
                     <Typography variant="h6" fontSize={18} fontWeight={600}>In case of any complaints call us at :-</Typography>
                     <Typography variant="body1" paragraph>
-                        {ServerURL.COMPANY_ADDRESS}<br />
-                        Mobile: {ServerURL.COMPANY_MOBILE}<br />
-                        Email: <a href={ServerURL.COMPANY_EMAIL}>{ServerURL.COMPANY_EMAIL}</a>
+        
+ <Typography variant="body1" fontWeight={600}>
+  Email:  support@p2musicshop.com
+</Typography>
+
+
+<Typography variant="body1" fontWeight={600}>
+  Phone: +919787787796
+</Typography>
+
+
+<Typography variant="body1" fontWeight={600}>
+  Address: 13, Ponmeni Narayanan Street, Pethaniapuram 2, Aarapalayam, SS Colony, Madurai-625016
+</Typography>
                     </Typography>
                 </Box>
             </Container>
