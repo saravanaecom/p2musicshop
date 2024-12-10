@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { useMediaQuery, useTheme } from '@mui/material';
 import { AuthProvider } from '../context/authContext';
 import { CartProvider } from '../context/CartContext';
@@ -52,6 +52,15 @@ function AppRouter() {
 
     const ThemeSettingsLists = ThemeSettings(themeLists);
 
+
+    const ScrollToTop = () => {
+        const location = useLocation(); // Listen for route changes
+        useEffect(() => {
+            window.scrollTo(0, 0);  // Scroll to top of the page
+        }, [location]); // Runs every time the route changes
+        return null;
+    };
+
     return (
         <ThemeProvider theme={ThemeSettingsLists}>
             <CssBaseline />
@@ -60,6 +69,7 @@ function AppRouter() {
                     <CartProvider>
                         <AppLayout CompanyDetails={themeLists}>
                             <div className="App">
+                            <ScrollToTop /> 
                                 <Routes>
                                     <Route path="/" element={<HomePage />} />
                                     <Route path="/categories" element={<Categories />} />
