@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Box, Typography, Button, List, ListItem, ListItemText } from '@mui/material';
-import { Instagram, Twitter, Facebook, LinkedIn } from '@mui/icons-material';
+import { Instagram, Twitter, Facebook, LinkedIn, YouTube } from '@mui/icons-material';
 import AppLogo from '../logo/AppLogo';
 import PlayStrore from '../../assets/play-store.svg';
 import AppStrore from '../../assets/app-store.svg';
@@ -21,22 +21,36 @@ const AppFooter = ({ CompanyDetails }) => {
                                 <Box sx={{ background: theme.palette.whitecolorCode.main, borderRadius: 1 }}>
                                     <AppLogo />
                                 </Box>
-                                <Box display="flex" gap={2} sx={{ py: 3 }}>
-                                    <Link href="#">
-                                        <Instagram sx={{ color: theme.palette.footertextcolorCode.main }}/>
-                                    </Link>
-                                    <Link href="#">
-                                        <Twitter sx={{ color: theme.palette.footertextcolorCode.main }}/>
-                                    </Link>
-                                    <Link href="#">
-                                        <Facebook sx={{ color: theme.palette.footertextcolorCode.main }} />
-                                    </Link>
-                                    <Link href="#">
-                                        <LinkedIn sx={{ color: theme.palette.footertextcolorCode.main }}/>
-                                    </Link>
-                                </Box>
+                                <Box display="flex" gap={2} sx={{ py: 3, justifyContent: 'center' }}>
+      <a
+        href="https://www.instagram.com/p2musicacademy"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Instagram"
+      >
+        <Instagram sx={{ color: theme.palette.footertextcolorCode.main }} />
+      </a>
+
+      <a
+        href="https://www.facebook.com/P2musicacademy/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Facebook"
+      >
+        <Facebook sx={{ color: theme.palette.footertextcolorCode.main }} />
+      </a>
+
+      <a
+        href="https://www.youtube.com/@P2musicacademy"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="YouTube"
+      >
+        <YouTube sx={{ color: theme.palette.footertextcolorCode.main }} />
+      </a>
+    </Box>
                                 <Typography variant="caption" sx={{ mt: 1, color: theme.palette.footertextcolorCode.main }}>
-                                    © Kassapos software solutions Pvt Ltd
+                                    © p2musicacademy
                                 </Typography>
                             </Box>
                         </Grid>
@@ -77,10 +91,10 @@ const AppFooter = ({ CompanyDetails }) => {
                                 </Typography>
                             </Box>
                             <Box>
-                                <Typography component={'p'} sx={{ mt: 1, color: theme.palette.footertextcolorCode.main }}>Mobile: {ServerURL.COMPANY_MOBILE}</Typography>
+                                <Typography component={'p'} sx={{ mt: 1, color: theme.palette.footertextcolorCode.main }}>Mobile: +919787787796 </Typography>
                             </Box>
                             <Box>
-                                <Typography component={'p'} sx={{ mt: 1, color: theme.palette.footertextcolorCode.main }}>Email: {ServerURL.COMPANY_EMAIL}</Typography>
+                                <Typography component={'p'} sx={{ mt: 1, color: theme.palette.footertextcolorCode.main }}>Email: support@p2musicshop.com</Typography>
                             </Box>
                         </Grid>
 
@@ -91,9 +105,9 @@ const AppFooter = ({ CompanyDetails }) => {
                                 <Button component={Link} target='_blank' href='https://play.google.com/store/apps/details?id=com.webpos.healthysteps' variant="outlined" sx={{ mb: 1, border: `1px solid ${theme.palette.basecolorCode.main}`, color: theme.palette.footertextcolorCode.main }} startIcon={<img src={PlayStrore} alt="Play Store" width="20" />}>
                                     Get it on play store
                                 </Button>
-                                <Button component={Link} target='_blank' href='https://play.google.com/store/apps/details?id=com.webpos.healthysteps' variant="outlined" sx={{ mt: 2, border: `1px solid ${theme.palette.basecolorCode.main}`, color: theme.palette.footertextcolorCode.main }} startIcon={<img src={AppStrore} alt="App Store" width="20" />}>
+                                {/* <Button component={Link} target='_blank' href='https://play.google.com/store/apps/details?id=com.webpos.healthysteps' variant="outlined" sx={{ mt: 2, border: `1px solid ${theme.palette.basecolorCode.main}`, color: theme.palette.footertextcolorCode.main }} startIcon={<img src={AppStrore} alt="App Store" width="20" />}>
                                     Get it on app store
-                                </Button>
+                                </Button> */}
                             </Box>
                         </Grid>
                     </Grid>
