@@ -47,6 +47,7 @@ const ProductDetails = (props) => {
             if (Array.isArray(fetchedProductDetails) && fetchedProductDetails.length > 0) {
                 const product = fetchedProductDetails[0];
                 setProductDetails(product);
+                console.log( product)
                 setTotalPrice(product.Price);
 
                 // Filter and flatten the image list
@@ -305,23 +306,23 @@ const ProductDetails = (props) => {
                                 {productDetails.Description || "Product name is not available"}
                             </Typography>
                             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', gap: '100px', pb: 1 }}>
-                                {Math.round(productDetails.Offer) === 0 && (
-                                    <Typography sx={{
-                                        position: 'relative',
-                                        left: '8px',
-                                        backgroundColor: '#fff6e0',
-                                        color: '#5d3e03',
-                                        padding: '2px 5px',
-                                        borderRadius: '3px',
-                                        border: '1px solid #90784159',
-                                        fontSize: '12px',
-                                        fontWeight: 'bold',
-                                        fontFamily: 'inherit',
-                                        display: 'block'
-                                    }}>
-                                        {Math.round(productDetails.Offer)}% OFF
-                                    </Typography>
-                                )}
+                            {productDetails.MRP && currentPrice && productDetails.MRP > currentPrice && (
+    <Typography sx={{
+        position: 'relative',
+        left: '8px',
+        backgroundColor: '#fff6e0',
+        color: '#5d3e03',
+        padding: '2px 5px',
+        borderRadius: '3px',
+        border: '1px solid #90784159',
+        fontSize: '12px',
+        fontWeight: 'bold',
+        fontFamily: 'inherit',
+        display: 'block'
+    }}>
+        {Math.round(((productDetails.MRP - currentPrice) / productDetails.MRP) * 100)}% OFF
+    </Typography>
+)}
                                 <Box sx={{
                                     position: 'relative',
                                     cursor: 'pointer',
