@@ -49,7 +49,7 @@ const AppFooter = ({ CompanyDetails }) => {
         <YouTube sx={{ color: theme.palette.footertextcolorCode.main }} />
       </a>
     </Box>
-                                <Typography variant="caption" sx={{ mt: 1, color: theme.palette.footertextcolorCode.main }}>
+                                <Typography variant="caption" sx={{ fontSize:'16px', color: theme.palette.footertextcolorCode.main }}>
                                     © p2musicacademy
                                 </Typography>
                             </Box>
@@ -85,16 +85,16 @@ const AppFooter = ({ CompanyDetails }) => {
 
                         <Grid item xs={12} sm={12} md={2}>
                             <Typography sx={{ color: theme.palette.footertextcolorCode.main, borderBottom: `2px solid ${theme.palette.basecolorCode.main}`, display: 'inline' }} fontWeight={600} variant={'h5'}>Official info:</Typography>
-                            <Box display="flex" gap={2}>
+                            {/* <Box display="flex" gap={2}>
                                 <Typography component={'p'} sx={{ mt: 1, color: theme.palette.footertextcolorCode.main }} className="text-sm sm:text-base lg:text-lg">
                                     {ServerURL.COMPANY_ADDRESS}
                                 </Typography>
-                            </Box>
+                            </Box> */}
                             <Box>
                                 <Typography component={'p'} sx={{ mt: 1, color: theme.palette.footertextcolorCode.main }}>Mobile: +919787787796 </Typography>
                             </Box>
                             <Box>
-                                <Typography component={'p'} sx={{ mt: 1, color: theme.palette.footertextcolorCode.main }}>Email: support@p2musicshop.com</Typography>
+                                <Typography component={'p'} sx={{ mt: 1, color: theme.palette.footertextcolorCode.main }}>Email: p2musicshop@gmail.com</Typography>
                             </Box>
                         </Grid>
 
