@@ -18,6 +18,8 @@ import { useCart } from '../context/CartContext';
 import { useTheme } from '@mui/material/styles';
 import { connect } from 'react-redux';
 import * as actionType from '../redux/actionType';
+import DOMPurify from "dompurify";
+
 
 const ProductDetails = (props) => {
     const theme = useTheme();
@@ -485,18 +487,41 @@ const ProductDetails = (props) => {
                             }
                         </Box>
                         <Box sx={{ pb: 4, pt: 6.5 }}>
-                            <Typography sx={{ fontSize: 18, fontWeight: 600, textAlign: 'left', pb: 1 }}>About Product</Typography>
-                            <Typography component={'p'} sx={{ color: '#2b1e3580', textAlign: 'left', fontSize: 16 }}>
-                                {productDetails.ProductDescription ? productDetails.ProductDescription
-                                    :
-                                    `High-Quality Materials: Durable build with premium wood, metal, or synthetic materials for long-lasting performance.
-                                    Superior Sound Output: Engineered for clear, rich, and vibrant tones.
-                                        Ergonomic Design: Comfortable to use for extended practice or performance sessions.
-Customizable Settings: Adjustable tuners, frets, or keys for personalized sound.
-Lightweight and Portable: Easy to carry and ideal for gigs and rehearsals.`
-                                }
-                            </Typography>
-                        </Box>
+      {/* Title */}
+      <Typography sx={{ fontSize: 18, fontWeight: 600, textAlign: "left", pb: 1 }}>
+        About Product
+      </Typography>
+
+      {/* Product Description */}
+      {productDetails.ProductDescription ? (
+        <Typography
+          component="div"
+          sx={{
+            textAlign: "left",
+            fontSize: 12,
+            lineHeight: 1.6,
+            fontWeight: 600,
+            fontFamily: "'Roboto', sans-serif", // Example font, customize as needed
+          }}
+          dangerouslySetInnerHTML={{
+            __html: DOMPurify.sanitize(productDetails.ProductDescription),
+          }}
+        />
+      ) : (
+        // Fallback Description
+        <Typography
+          component="p"
+          sx={{
+            textAlign: "left",
+            fontSize: 12,
+            lineHeight: 1.6,
+            fontFamily: "'Roboto', sans-serif", // Example font, customize as needed
+          }}
+        >
+          High-Quality Materials: Durable build with premium wood, metal, or synthetic materials for long-lasting performance. Superior Sound Output: Engineered for clear, rich, and vibrant tones. Ergonomic Design: Comfortable to use for extended practice or performance sessions. Customizable Settings: Adjustable tuners, frets, or keys for personalized sound. Lightweight and Portable: Easy to carry and ideal for gigs and rehearsals.
+        </Typography>
+      )}
+    </Box>
                     </Grid>
                 </Grid>
             </Container>
@@ -511,7 +536,7 @@ Lightweight and Portable: Easy to carry and ideal for gigs and rehearsals.`
 
 
 const mapStateToProps = (state) => {
-    return {
+    return { 
       get_fav_lists: state.get_fav_lists, // Get favourite lists from Redux state (Wishlists)
     };
 };
