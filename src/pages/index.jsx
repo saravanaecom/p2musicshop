@@ -117,9 +117,9 @@ export default function HomePage() {
                 </ScrollSection>
 
                 {/* Second Product Index */}
-                <ScrollSection direction="left">
+                {/* <ScrollSection direction="left">
                     <ProductByIndexPage />
-                </ScrollSection>
+                </ScrollSection> */}
 
                 {/* Scroll to Top Button */}
                 <motion.div
