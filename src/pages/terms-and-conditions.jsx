@@ -114,14 +114,14 @@ export default function TermsAndConditions() {
                         If you have any questions about these Terms & Conditions, please contact us at:
                     </Typography>
                     <Typography variant="body1" fontWeight={600} sx={{ marginBottom: '10px' }}>
-                        Email: support@p2musicshop.com
+                        Email: p2musicshop@gmail.com
                     </Typography>
                     <Typography variant="body1" fontWeight={600} sx={{ marginBottom: '10px' }}>
                         Phone: +919787787796
                     </Typography>
-                    <Typography variant="body1" fontWeight={600} sx={{ marginBottom: '10px' }}>
+                    {/* <Typography variant="body1" fontWeight={600} sx={{ marginBottom: '10px' }}>
                         Address: 13, Ponmeni Narayanan Street, Pethaniapuram 2, Aarapalayam, SS Colony, Madurai-625016
-                    </Typography>
+                    </Typography> */}
                 </Box>
             </Container>
         </>

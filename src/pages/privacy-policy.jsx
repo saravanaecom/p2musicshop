@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
                         Privacy Policy
                     </Typography>
                     <Typography variant="body2" color="textSecondary" align="left">
-                        Last Updated on January 01, 2022
+                        Last Updated on January 01, 2024
                     </Typography>
 
                     <Divider sx={{ margin: '20px 0' }} />
@@ -48,7 +48,7 @@ export default function PrivacyPolicy() {
                     Process your orders and transactions.<br />
                     Communicate with you regarding your purchases and provide customer support.<br />
                     Improve our website’s functionality and user experience.<br />
-                    Send promotional emails and marketing materials (if you opt-in).<br />
+                    Send promotional emails and marketing materials p2musicshop@gmail.com.<br />
                     Comply with legal obligations and safeguard against fraud.<br />
                     </Typography>
 
@@ -124,7 +124,7 @@ export default function PrivacyPolicy() {
                     <Typography variant="body1" paragraph>
                     If you have any questions or concerns about this Privacy Policy or our data practices, please contact us:
  <Typography variant="body1" fontWeight={600}>
-  Email:  support@p2musicshop.com
+  Email:  p2musicshop@gmail.com
 </Typography>
 
 
@@ -133,9 +133,9 @@ export default function PrivacyPolicy() {
 </Typography>
 
 
-<Typography variant="body1" fontWeight={600}>
+{/* <Typography variant="body1" fontWeight={600}>
   Address: 13, Ponmeni Narayanan Street, Pethaniapuram 2, Aarapalayam, SS Colony, Madurai-625016
-</Typography>
+</Typography> */}
                     </Typography>
                 </Box>
             </Container>

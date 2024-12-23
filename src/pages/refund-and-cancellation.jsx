@@ -41,7 +41,7 @@ export default function RefundAndCancellation() {
                     <Typography variant="body1" paragraph>
                     The item must be unused, in its original packaging, and in the same condition as when you received it.<br /> 
                     Proof of purchase (order confirmation or invoice) must be provided.<br />
-                    Returns must be initiated within **[Insert Number] days** of receiving the item.
+                    Returns must be initiated within  3 days  of receiving the item.
                     </Typography>
 
                     <Divider sx={{ margin: '20px 0' }} />       
@@ -49,7 +49,7 @@ export default function RefundAndCancellation() {
                         <Typography variant="h6" fontSize={18} fontWeight={600}>Refund Process</Typography>
                     <Typography variant="body1" paragraph>
                     Once we receive and inspect the returned item, we will notify you of the approval or rejection of your refund.<br /> 
-                    Approved refunds will be processed within **7-10 business days** to your original payment method.
+                    Approved refunds will be processed within 7-10 business days to your original payment method.
                     </Typography>
 
                     <Divider sx={{ margin: '20px 0' }} /> 
@@ -67,7 +67,7 @@ export default function RefundAndCancellation() {
                         <Typography variant="h6" fontSize={18} fontWeight={600}> Refund Process</Typography>
                     <Typography variant="body1" paragraph>
                     Once we receive and inspect the returned item, we will notify you of the approval or rejection of your refund.<br /> 
-                    Approved refunds will be processed within **7-10 business days** to your original payment method.
+                    Approved refunds will be processed within 7-10 business days to your original payment method.
                     </Typography>
 
                     <Divider sx={{ margin: '20px 0' }} /> 
@@ -84,7 +84,7 @@ export default function RefundAndCancellation() {
                         <Typography variant="h6" fontSize={18} fontWeight={600}> Damaged or Defective Items</Typography>
                     <Typography variant="body1" paragraph>
                     <Typography variant="body1" paragraph>If you receive a damaged or defective item:</Typography>
-                    Contact us within **[Insert Number] days** of receiving the item at **support@p2musicshop.com** or **+919787787796** with photos or videos of the damage.<br /> 
+                    Contact us within  3 days of receiving the item at p2musicshop@gmail.com.com or **+919787787796** with photos or videos of the damage.<br /> 
                     We will arrange for a replacement or refund after verification.
 
                     </Typography>
@@ -104,7 +104,7 @@ export default function RefundAndCancellation() {
                     <Typography variant="body1" paragraph>
         
  <Typography variant="body1" fontWeight={600}>
-  Email:  support@p2musicshop.com
+  Email: p2musicshop@gmail.com
 </Typography>
 
 
@@ -113,9 +113,9 @@ export default function RefundAndCancellation() {
 </Typography>
 
 
-<Typography variant="body1" fontWeight={600}>
+{/* <Typography variant="body1" fontWeight={600}>
   Address: 13, Ponmeni Narayanan Street, Pethaniapuram 2, Aarapalayam, SS Colony, Madurai-625016
-</Typography>
+</Typography> */}
                     </Typography>
                 </Box>
             </Container>
