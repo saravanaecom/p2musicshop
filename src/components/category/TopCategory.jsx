@@ -123,7 +123,7 @@ const TopCategory = (props) => {
               <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                 <Avatar
                   src={AllCategories}
-                  sx={{ width: 55, height: 55, mb: 0.5, boxShadow: `0px 0px 40px 20px ${theme.palette.shadowcolorCode.main}` }}
+                  sx={{ width: 55, height: 55, mb: 0.5, boxShadow: `0px 0px 40px 20px #fff9fb` }}
                 />
                 <Typography variant="caption" sx={{ textAlign: 'center', textTransform: 'capitalize', fontWeight: 600, fontSize: '14px', color: theme.palette.colorCode.main}}>
                   All Categories
