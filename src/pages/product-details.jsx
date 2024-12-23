@@ -486,6 +486,42 @@ const ProductDetails = (props) => {
                                 </Button>
                             }
                         </Box>
+
+                        <Box>
+                        {productDetails.Aproximiatedays ? (
+        <Box className="mt-4">
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: 600,
+              fontSize: 14,
+              color: 'gray',
+              textAlign: 'left',
+            }}
+          >
+            Estimated Delivery: 
+            <span className="text-blue-600 ml-2">{productDetails.Aproximiatedays}</span>
+          </Typography>
+        </Box>
+      ) : (
+        <Box className="mt-4">
+          <Typography
+            variant="h6"
+            sx={{
+              fontWeight: 600,
+              fontSize: 14,
+              color: 'gray',
+              textAlign: 'left',
+            }}
+          >
+            Estimated Delivery: 
+            <span className="text-red-600 ml-2">Not Available</span>
+          </Typography>
+        </Box>
+      )}
+
+                            
+                        </Box>
                         <Box sx={{ pb: 4, pt: 6.5 }}>
       {/* Title */}
       <Typography sx={{ fontSize: 18, fontWeight: 600, textAlign: "left", pb: 1 }}>
@@ -522,6 +558,7 @@ const ProductDetails = (props) => {
         </Typography>
       )}
     </Box>
+
                     </Grid>
                 </Grid>
             </Container>
