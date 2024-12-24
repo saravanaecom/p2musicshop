@@ -40,17 +40,10 @@ const AppFooter = ({ CompanyDetails }) => {
         <Facebook sx={{ color: theme.palette.footertextcolorCode.main }} />
       </a>
 
-      <a
-        href="https://www.youtube.com/@P2musicacademy"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="YouTube"
-      >
-        <YouTube sx={{ color: theme.palette.footertextcolorCode.main }} />
-      </a>
+   
     </Box>
                                 <Typography variant="caption" sx={{ fontSize:'16px', color: theme.palette.footertextcolorCode.main }}>
-                                    © p2musicacademy
+                                    © p2musicShop
                                 </Typography>
                             </Box>
                         </Grid>
