@@ -102,19 +102,18 @@ export default function HomePage() {
                 </ScrollSection>
 
                 {/* First Product Index */}
-                <ScrollSection direction="right">
+            
                     <ProductByIndexPage />
-                </ScrollSection>
+          
 
                 {/* Banner Slider */}
-                <ScrollSection direction="up">
+               
                     <BannerSlider />
-                </ScrollSection>
-
+            
                 {/* Category Slider */}
-                <ScrollSection direction="left">
+          
                     <ImageCategorySlider />
-                </ScrollSection>
+           
 
                 {/* Second Product Index */}
                 {/* <ScrollSection direction="left">
