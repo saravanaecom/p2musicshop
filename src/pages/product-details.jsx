@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Box, Container, Grid, Typography, FormControl, Select, MenuItem, Button, CircularProgress, Backdrop } from '@mui/material';
+import { Box, Container, Grid, Typography, FormControl, Select, MenuItem, Button, CircularProgress, Backdrop,Chip } from '@mui/material';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import NoImage from '../assets/no-image.png';
@@ -522,6 +522,70 @@ const ProductDetails = (props) => {
 
                             
                         </Box>
+
+
+                        <Box className="mt-4">
+  {/* Our Choice */}
+  {productDetails.OurChoice === 1 && (
+    <div 
+      style={{ 
+        height: '30px',
+        width: '100px',
+        fontWeight: 'bold', 
+        fontSize: '12px', 
+        color: 'green', 
+        padding: '4px 8px',
+        border: '1px solid green',
+        borderRadius: '4px',
+        backgroundColor: '#f0fff0'
+      }}
+    >
+      Our Choice
+    </div>
+  )}
+
+  {/* Return Policy */}
+  {productDetails.ReturnPolicyDays ? (
+    <div 
+      style={{ 
+        height: '30px',
+        width: '200px',
+        marginTop: '8px',
+        fontWeight: 'bold', 
+        fontSize: '12px', 
+        color: 'blue',
+        padding: '4px 8px',
+        border: '1px solid blue',
+        borderRadius: '4px',
+        backgroundColor: '#f0f8ff'
+      }}
+    >
+      Return available in {productDetails.ReturnPolicyDays}
+    </div>
+  ) : (
+    <div 
+      style={{ 
+        height: '30px',
+        width: '200px',
+        marginTop: '8px',
+        fontWeight: 'bold', 
+        fontSize: '12px', 
+        color: 'red',
+        padding: '4px 8px',
+        border: '1px solid red',
+        borderRadius: '4px',
+        backgroundColor: '#fff0f0'
+      }}
+    >
+      Return not available
+    </div>
+  )}
+</Box>
+
+
+
+
+
                         <Box sx={{ pb: 4, pt: 6.5 }}>
       {/* Title */}
       <Typography sx={{ fontSize: 18, fontWeight: 600, textAlign: "left", pb: 1 }}>

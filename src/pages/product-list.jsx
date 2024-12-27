@@ -232,176 +232,170 @@ const ProductList = () => {
 
 
   return (
-    <>
-    
-      <Backdrop sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }} open={backdropOpen}>
-        <CircularProgress color="inherit" />
-      </Backdrop>
-      <Container maxWidth="xl" sx={{ px: { xs: 0, md: 3 } }}>
-        <Grid container>
-          {/* Left-side Drawer */}
-          {offerProducts === null && relatedProducts === null && newProducts === null ?
-            <Grid item xs={2.5} md={2} sx={{ display: { xs: 'none', md: 'block' },  zIndex: 10, }} style={{ position: 'sticky', top: 0, height: '100vh' }}>
-              <Drawer
-                variant="permanent"
-                sx={{
-                  width: drawerWidth,
-                  flexShrink: 0,
-                  position: "relative",
-                  '& .MuiDrawer-paper': {
-                    width: drawerWidth,
-                    boxSizing: 'border-box',
-                    position: "relative",
-                    background: 'rgba(255, 255, 255, 0.6)',
-               
-                  },
-                }}
-              >
-                <List>
-                  {subcategories.map((category, index) => (
-                    <ListItem
-                      button
-                      key={index}
-                      onClick={() => handleSubCategoryClick(category.SubCategory, category.Id)}
-                      sx={{
-                        borderLeft: activeCategory === category.SubCategory ? `4px solid ${theme.palette.basecolorCode.main}` : 'none',
-                        backgroundColor: activeCategory === category.SubCategory ? `${theme.palette.shadowcolorCode.main}` : 'transparent',
-                        color: activeCategory === category.SubCategory ? `${theme.palette.basecolorCode.main}` : '#253D4E',
-                        '& .MuiListItemIcon-root': {
-                          color: activeCategory === category.SubCategory ? '#000' : 'inherit',
-                        },
-                        '&:hover': {
-                          backgroundColor: theme.palette.shadowcolorCode.main,
-                          color: theme.palette.basecolorCode.main
-                        },
-                      }}
-                    >
-                      <img
-                        style={{
-                          position: 'relative',
-                          height: '3rem',
-                          width: '3rem',
-                          borderRadius: '9999px',
-                          padding: '.25rem',
-                          backgroundColor: '#f7f0fa',
-                          marginRight: 10,
-                        }}
-                        src={category.ImagePath ? ImagePathRoutes.SubCategoryImagePath + category.ImagePath : "https://www.healthysteps.in/categoryimages/All-categories.png"}
-                      />
-                      <ListItemText
-                        primary={category.SubCategory}
-                        primaryTypographyProps={{
-                          style: {
-                            fontWeight: activeCategory === category.SubCategory ? 'bold' : 'normal',
-                            fontFamily: 'inherit'
-                          },
-                        }}
-                      />
-                    </ListItem>
-                  ))}
-                </List>
-              </Drawer>
-            </Grid>
-            :
-            <></>
-          }
-
-
-          {/* Mobile Drawer Toggle Button */}
-          {offerProducts === null && relatedProducts === null && newProducts === null ?
-            <Grid item xs={2.5} sx={{ display: { xs: 'block', md: 'none' } }} style={{ position: 'sticky', top: 0, height: '100vh' }}>
-              <Drawer
-                variant="permanent"
-                sx={{
-                  width: '80px',
-                  flexShrink: 0,
-                  position: "relative",
-                  '& .MuiDrawer-paper': {
-                    width: '80px',
-                    boxSizing: 'border-box',
-                    position: "relative",
-                  },
-                }}
-              >
-                <List>
-                  {subcategories.map((category, index) => (
-                    <ListItemStyled
-                      key={index}
-                      onClick={() => handleSubCategoryClick(category.SubCategory, category.Id)}
-                      sx={{
-                        borderLeft: activeCategory === category.SubCategory ? `4px solid ${theme.palette.basecolorCode.main}` : 'none',
-                        backgroundColor: activeCategory === category.SubCategory ? '#3bb77e1c' : 'transparent',
-                        color: activeCategory === category.SubCategory ? '#3BB77E' : '#253D4E',
-                        '& .MuiListItemIcon-root': {
-                          color: activeCategory === category.SubCategory ? '#000' : 'inherit',
-                        },
-                        '&:hover': {
-                          backgroundColor: '#3bb77e1c',
-                          color: "#3BB77E"
-                        },
-                      }}
-                    >
-                      <Avatar src={category.ImagePath ? ImagePathRoutes.SubCategoryImagePath + category.ImagePath : "https://www.healthysteps.in/categoryimages/All-categories.png"} alt={category.SubCategory} />
-                      <IconLabel>{category.SubCategory}</IconLabel>
-                    </ListItemStyled>
-                  ))}
-                </List>
-              </Drawer>
-            </Grid>
-            :
-            <></>
-          }
-
-          {/* Right-side Content Area */}
-          <Grid item xs={offerProducts === null && relatedProducts === null && newProducts === null ? 9.5 : 12} md={offerProducts === null && relatedProducts === null && newProducts === null ? 10 : 12}>
-            <Grid container sx={{ px: { xs: 0, md: 0 }, justifyContent: "flex-start", gap: "0px 18px" }}>
-              <Box sx={{ width: '100%', display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                <Typography sx={{ py: { xs: 1, md: 3 }, fontSize: { xs: 20, md: 28 }, fontFamily: "inherit", fontWeight: 600, color: '#F44336' }} variant="h4">
-                  {activeCategory ? activeCategory : subCategoryName}
-                </Typography>
-                <Box sx={{ minWidth: { xs: 100, md: 250 } }}>
-                  <FormControl fullWidth>
-                    <Select
-                      id="productFilter"
-                      value={productFilterName}
-                      size="small"
-                      sx={{ textAlign: "left" }}
-                      onChange={handleProductFilterChange}
-                    >
-                      <MenuItem value={"All products"}>All products</MenuItem>
-                      <MenuItem value={"Price(Low > High)"}>Price(Low > High)</MenuItem>
-                      <MenuItem value={"Price(High > Low)"}>Price(High > Low)</MenuItem>
-                      <MenuItem value={"Alphabetical"}>Alphabetical</MenuItem>
-                      <MenuItem value={"Alphabetical Reverse"}>Alphabetical Reverse</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Box>
-              </Box>
-
-              {/* Render filtered product list */}
-              <div className={offerProducts === null && relatedProducts === null && newProducts === null ? "grid h-full w-full grid-cols-2 content-start gap-x-3 overflow-auto md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 pb-24 no-scrollbar" : "grid h-full w-full grid-cols-2 content-start gap-x-3 overflow-auto md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 pb-24 no-scrollbar"}>
-                {productLists.length > 0 ? (
-                  productLists.map((product) => (
-                    <Box key={product.id} sx={{ mb: 3 }}>
-                      <ProductCard product={product} isLoading={loading} offerProducts={offerProducts} relatedProducts={relatedProducts} newProducts={newProducts} />
-                    </Box>
-                  ))
-                ) : (
-                  !backdropOpen && (
-                    <Typography
-                      variant="h6"
-                      sx={{ mt: 3, width: '100%', textAlign: 'center', color: theme.palette.basecolorCode.main }}
-                    >
-                      No products available.
-                    </Typography>
-                  )
-                )}
-              </div>
-            </Grid>
-          </Grid>
+  <>
+  <Backdrop sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }} open={backdropOpen}>
+    <CircularProgress color="inherit" />
+  </Backdrop>
+  <Container maxWidth="xl" sx={{ px: { xs: 0, md: 3 } }}>
+    <Grid container>
+      {/* Left-side Drawer for larger screens */}
+      {(offerProducts === null && relatedProducts === null && newProducts === null) && (
+        <Grid item xs={12} md={2} sx={{ display: { xs: 'none', md: 'block' }, zIndex: 10 }} style={{ position: 'sticky', top: 0, height: '100vh' }}>
+          <Drawer
+            variant="permanent"
+            sx={{
+              width: drawerWidth,
+              flexShrink: 0,
+              position: "relative",
+              '& .MuiDrawer-paper': {
+                width: drawerWidth,
+                boxSizing: 'border-box',
+                position: "relative",
+                background: 'rgba(255, 255, 255, 0.6)',
+              },
+            }}
+          >
+            <List>
+              {subcategories.map((category, index) => (
+                <ListItem
+                  button
+                  key={index}
+                  onClick={() => handleSubCategoryClick(category.SubCategory, category.Id)}
+                  sx={{
+                    borderLeft: activeCategory === category.SubCategory ? `4px solid ${theme.palette.basecolorCode.main}` : 'none',
+                    backgroundColor: activeCategory === category.SubCategory ? `${theme.palette.shadowcolorCode.main}` : 'transparent',
+                    color: activeCategory === category.SubCategory ? `${theme.palette.basecolorCode.main}` : '#253D4E',
+                    '& .MuiListItemIcon-root': {
+                      color: activeCategory === category.SubCategory ? '#000' : 'inherit',
+                    },
+                    '&:hover': {
+                      backgroundColor: theme.palette.shadowcolorCode.main,
+                      color: theme.palette.basecolorCode.main,
+                    },
+                  }}
+                >
+                  <img
+                    style={{
+                      position: 'relative',
+                      height: '3rem',
+                      width: '3rem',
+                      borderRadius: '9999px',
+                      padding: '.25rem',
+                      backgroundColor: '#f7f0fa',
+                      marginRight: 10,
+                    }}
+                    src={category.ImagePath ? ImagePathRoutes.SubCategoryImagePath + category.ImagePath : "https://www.healthysteps.in/categoryimages/All-categories.png"}
+                  />
+                  <ListItemText
+                    primary={category.SubCategory}
+                    primaryTypographyProps={{
+                      style: {
+                        fontWeight: activeCategory === category.SubCategory ? 'bold' : 'normal',
+                        fontFamily: 'inherit',
+                      },
+                    }}
+                  />
+                </ListItem>
+              ))}
+            </List>
+          </Drawer>
         </Grid>
-      </Container>
-    </>
+      )}
+
+      {/* Mobile Drawer Toggle Button */}
+      {(offerProducts === null && relatedProducts === null && newProducts === null) && (
+        <Grid item xs={12} md={2} sx={{ display: { xs: 'block', md: 'none' }, position: 'sticky', top: 0, height: '100vh' }}>
+          <Drawer
+            variant="permanent"
+            sx={{
+              width: '80px',
+              flexShrink: 0,
+              position: "relative",
+              '& .MuiDrawer-paper': {
+                width: '80px',
+                boxSizing: 'border-box',
+                position: "relative",
+              },
+            }}
+          >
+            <List>
+              {subcategories.map((category, index) => (
+                <ListItemStyled
+                  key={index}
+                  onClick={() => handleSubCategoryClick(category.SubCategory, category.Id)}
+                  sx={{
+                    borderLeft: activeCategory === category.SubCategory ? `4px solid ${theme.palette.basecolorCode.main}` : 'none',
+                    backgroundColor: activeCategory === category.SubCategory ? '#3bb77e1c' : 'transparent',
+                    color: activeCategory === category.SubCategory ? '#3BB77E' : '#253D4E',
+                    '& .MuiListItemIcon-root': {
+                      color: activeCategory === category.SubCategory ? '#000' : 'inherit',
+                    },
+                    '&:hover': {
+                      backgroundColor: '#3bb77e1c',
+                      color: "#3BB77E",
+                    },
+                  }}
+                >
+                  <Avatar src={category.ImagePath ? ImagePathRoutes.SubCategoryImagePath + category.ImagePath : "https://www.healthysteps.in/categoryimages/All-categories.png"} alt={category.SubCategory} />
+                  <IconLabel>{category.SubCategory}</IconLabel>
+                </ListItemStyled>
+              ))}
+            </List>
+          </Drawer>
+        </Grid>
+      )}
+
+      {/* Right-side Content Area */}
+      <Grid item xs={12} md={offerProducts === null && relatedProducts === null && newProducts === null ? 10 : 12}  sx={{ p:3 }}>
+        <Grid container sx={{ px: { xs: 0, md: 0 }, justifyContent: "flex-start", gap: "0px 18px" }}>
+          <Box sx={{ width: '100%', display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <Typography sx={{ py: { xs: 1, md: 3 }, fontSize: { xs: 20, md: 28 }, fontFamily: "inherit", fontWeight: 600, color: '#F44336' }} variant="h4">
+              {activeCategory ? activeCategory : subCategoryName}
+            </Typography>
+            <Box sx={{ minWidth: { xs: 100, md: 250 } }}>
+              <FormControl fullWidth>
+                <Select
+                  id="productFilter"
+                  value={productFilterName}
+                  size="small"
+                  sx={{ textAlign: "left" }}
+                  onChange={handleProductFilterChange}
+                >
+                  <MenuItem value={"All products"}>All products</MenuItem>
+                  <MenuItem value={"Price(Low > High)"}>Price(Low to High)</MenuItem>
+                  <MenuItem value={"Price(High > Low)"}>Price(High to Low)</MenuItem>
+                  <MenuItem value={"Alphabetical"}>Alphabetical</MenuItem>
+                  <MenuItem value={"Alphabetical Reverse"}>Alphabetical Reverse</MenuItem>
+                </Select>
+              </FormControl>
+            </Box>
+          </Box>
+
+          {/* Render filtered product list */}
+          <div className={offerProducts === null && relatedProducts === null && newProducts === null ? "grid h-full w-full grid-cols-2 content-start gap-x-3 overflow-auto md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 pb-24 no-scrollbar" : "grid h-full w-full grid-cols-2 content-start gap-x-3 overflow-auto md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 pb-24 no-scrollbar"}>
+            {productLists.length > 0 ? (
+              productLists.map((product) => (
+                <Box key={product.id} sx={{ mb: 3 }}>
+                  <ProductCard product={product} isLoading={loading} offerProducts={offerProducts} relatedProducts={relatedProducts} newProducts={newProducts} />
+                </Box>
+              ))
+            ) : (
+              !backdropOpen && (
+                <Typography
+                  variant="h6"
+                  sx={{ mt: 3, width: '100%', textAlign: 'center', color: theme.palette.basecolorCode.main }}
+                >
+                  No products available.
+                </Typography>
+              )
+            )}
+          </div>
+        </Grid>
+      </Grid>
+    </Grid>
+  </Container>
+</>
+
   );
 };
 
