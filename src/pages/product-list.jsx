@@ -177,7 +177,7 @@ const ProductList = () => {
     if(atob(encodedId) !== 'new_product'){
       GetCategoryBySubCategory(atob(encodedId));
     }    
-    if (encodedSId === null) {
+    if (encodedSId !== null) {
       setActiveCategory("All Products");
       GetProductLists(atob(encodedId), Multipleitems, Startindex, PageCount);
     }
