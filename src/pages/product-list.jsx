@@ -181,9 +181,21 @@ const ProductList = () => {
       setActiveCategory("All Products");
       GetProductLists(atob(encodedId), Multipleitems, Startindex, PageCount);
     }
+    if (encodedSId === 'All Products') {
+      setActiveCategory("All Products");
+      GetProductLists(atob(encodedId), Multipleitems, Startindex, PageCount);
+    }
+    if (encodedSName === 'All%20Products') {
+      setActiveCategory("All Products");
+      GetProductLists(atob(encodedId), Multipleitems, Startindex, PageCount);
+    }
 
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    
+ 
+
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search, categoryId, categoryName, Multipleitems, Startindex, PageCount]);
+  
 
   // Function to filter products based on the selected option
   const handleProductFilterChange = (event) => {
