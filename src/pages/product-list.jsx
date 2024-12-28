@@ -181,6 +181,11 @@ const ProductList = () => {
       setActiveCategory("All Products");
       GetProductLists(atob(encodedId), Multipleitems, Startindex, PageCount);
     }
+
+    if (encodedSId === null) {
+      setActiveCategory("All Products");
+      GetProductLists(atob(encodedId), Multipleitems, Startindex, PageCount);
+    }
     if (encodedSId === 'All Products') {
       setActiveCategory("All Products");
       GetProductLists(atob(encodedId), Multipleitems, Startindex, PageCount);
@@ -189,10 +194,6 @@ const ProductList = () => {
       setActiveCategory("All Products");
       GetProductLists(atob(encodedId), Multipleitems, Startindex, PageCount);
     }
-
-    
- 
-
     //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search, categoryId, categoryName, Multipleitems, Startindex, PageCount]);
   
