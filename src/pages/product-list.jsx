@@ -67,6 +67,18 @@ const ProductList = () => {
   const [PageCount, setPageCount] = useState(1);
   const [productFilterName, setProductFilterName] = useState('All products');
 
+
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop >= document.documentElement.offsetHeight - 200 &&
+      !loading
+    ) {
+      setPageCount((prev) => prev + 1);
+      GetProductLists(categoryId, Multipleitems, Startindex, PageCount + 1);
+    }
+  };
+  
+
   const handleSubCategoryClick = (subCategoryName, SubCategoryId) => {
     setSubCategoryId(SubCategoryId);
     navigate(`/product-list?pcid=${btoa(atob(categoryId))}&pcname=${btoa(atob(categoryName))}&pscid=${btoa(SubCategoryId)}&pscname=${subCategoryName}`);
@@ -177,16 +189,9 @@ const ProductList = () => {
     if(atob(encodedId) !== 'new_product'){
       GetCategoryBySubCategory(atob(encodedId));
     }    
-    if (encodedSId !== null) {
-      setActiveCategory("All Products");
-      GetProductLists(atob(encodedId), Multipleitems, Startindex, PageCount);
-    }
+
 
     if (encodedSId === null) {
-      setActiveCategory("All Products");
-      GetProductLists(atob(encodedId), Multipleitems, Startindex, PageCount);
-    }
-    if (encodedSId === 'All Products') {
       setActiveCategory("All Products");
       GetProductLists(atob(encodedId), Multipleitems, Startindex, PageCount);
     }
