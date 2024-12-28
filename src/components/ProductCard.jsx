@@ -306,6 +306,7 @@ const ProductCard = ({ get_fav_lists, product, isLoading, offerProducts, related
               objectFit: 'contain',
             }}
           />
+
           {Math.round(product.Offer) !== 0 && (
             <Box
               sx={{
@@ -359,9 +360,13 @@ const ProductCard = ({ get_fav_lists, product, isLoading, offerProducts, related
                     }} 
                     onClick={(event) => { handleRemoveFavProduct(product?.Productid ? product.Productid : product?.Id, event); }} /> : <FavoriteBorderIcon onClick={(event) => { handleAddFavProduct(product?.Productid ? product.Productid : product?.Id, event, 'Add'); }} size="small" sx={{ color: '#ee4372', fontSize: '18px' }} />}
           </Box>
+ 
         </Box>
       )}
+ 
       <CardContent 
+
+      
        sx={{ 
         height: { xs: '50%', sm: '45%', md: '40%' },
         display: 'flex',
@@ -381,6 +386,26 @@ const ProductCard = ({ get_fav_lists, product, isLoading, offerProducts, related
           </>
         ) : (
           <>
+
+{product.OurChoice === 1 && (
+  <Box
+    sx={{
+      position: 'absolute',
+      bottom:'150px',
+      right: '8px',
+      backgroundColor: '#ee4372',
+      color: '#fff',
+      fontSize: '12px',
+      fontWeight: 'bold',
+      borderRadius: '4px',
+      padding: '4px 8px',
+      boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+      zIndex: 10,
+    }}
+  >
+    Our Choice
+  </Box>
+)}
             <Box sx={{ flex: '1 0 auto' }}>
               <Typography
                 variant="body2"
@@ -409,10 +434,18 @@ const ProductCard = ({ get_fav_lists, product, isLoading, offerProducts, related
               >
                 {product.Description}
               </Typography>
+               
+
               <Typography variant="body2" color="text.secondary" sx={{ fontFamily: 'inherit' }}>
                 {product.quantity}
               </Typography>
             </Box>
+    
+
+   
+
+
+
             <Box sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center' }}>
               {/* <Typography
                 variant="body2"
